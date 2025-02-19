@@ -16,6 +16,11 @@ public:
         balance = initialBalance;
         bankFunds += initialBalance; // Update total bank funds
     }
+    
+    string getHolderName() const{
+        return accountHolder;
+    }
+    
 
     // Deposit function
     double deposit(double amount) {
@@ -46,15 +51,15 @@ double BankAccount::bankFunds = 0;
 
 int main() {
     // Creating bank accounts
-    BankAccount acc1(101, "raj", 1000);
-    BankAccount acc2(102, "rohan", 2000);
+    BankAccount acc1(101, "Mayank", 1000);
+    BankAccount acc2(102, "Tushar", 200000);
 
     // Performing transactions
-    cout << "New Balance (raj): $" << acc1.deposit(500) << endl;
-    cout << "New Balance (rohan): $" << acc2.withdraw(1000) << endl;
+    cout << "New Balance "<<acc1.getHolderName()<<": ₹" << acc1.deposit(50000) << endl;
+    cout << "New Balance "<<acc2.getHolderName()<<": ₹" << acc2.withdraw(10050) << endl;
 
     // Display total bank funds
-    cout << "Total Bank Funds: $" << BankAccount::getBankFunds() << endl;
+    cout << "Total Bank Funds: ₹" << BankAccount::getBankFunds() << endl;
 
     return 0;
 }
